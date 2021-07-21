@@ -1,133 +1,93 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-    <title>AddBook</title>
-    <link rel="stylesheet" href="Css/BooksStyle.css">
-    <link rel="icon" href="Images/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            background: url(1.jpg) no-repeat;
-            background-size: cover;
-            height: calc(100vh - 80px);
-        }
-    </style>
+    <title>Add Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="AddBook.css">
+    
+    <script>function validation() {
+         var uniqueid = document.getElementById("bookid").value;
+         var btitle = document.getElementById("booktitle").value;
+         var bauthor = document.getElementById("bookauthor").value;
+         var bprice = document.getElementById("bookprice").value;
+    
+         if (uniqueid == '') {
+                alert("please enter book id.");
+                document.getElementById('bookid').style.borderColor = "red";
+                return false;
+            }
+        else if (btitle == '') {
+                alert("please enter book title.");
+                document.getElementById('booktitle').style.borderColor = "red";
+                return false;
+            }
+        else if (bauthor == '') {
+                alert("please enter book author.");
+                document.getElementById('bookauthor').style.borderColor = "red";
+                return false;
+            }
+        else if (bprice == '') {
+                alert("please enter book price.");
+                document.getElementById('bookprice').style.borderColor = "red";
+                return false;
+            }
+        else{
+                alert('Book added successfully');
+            }    
+    }
+    </script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-        <!-- Brand -->
-        <a class="navbar-brand" href="#">Book</a>
-      
-        <!-- Links -->
-        <ul class="navbar-nav">
-          <li class="nav-item" >
-            <a class="nav-link" href="HomePage.html">Home</a>
-          </li>
-          <!-- Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              User
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="UserLogin.html">User Login</a>
-              <a class="dropdown-item" href="UserRegister.html">User Register</a>
-            </div>
-          </li>
-          <!-- Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              Books
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="AddBook.html">Add Book</a>
-              <a class="dropdown-item" href="ReviewBook.html">Book Review</a>
-              <a class="dropdown-item" href="#">Update Book</a>
-              <a class="dropdown-item" href="ViewBooks.html">View Book</a>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    </br>
-  </br>
-</br>
     <div class="container">
-      <div >
-        <h1 class="card-title text-center text-info" >Book Details</h1>
-        <br>
-      <form align="centre" class="col-xs-1 ">
-        <div class="row">
-            <div class="col">
+        <div>
+            <p class="tophead text-uppercase text-center">Add Book Form</p>
+        </div>
+        <form class="form text-uppercase" onsubmit="return validation()">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputfirstname">Book ID</label>
+                    <input type="text" class="form-control" id="bookid" placeholder="enter book id">
                 </div>
-              <div class="col">
-                <input type="text" class="form-control" id="BId" placeholder="Book ID" name="Book Id">
-              </div>
-              <div class="col">
-              </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputlastname">Title</label>
+                    <input type="text" class="form-control" id="booktitle" placeholder="enter title">
                 </div>
-              <div class="col">
-                <input type="text" class="form-control" id="Bname" placeholder="Book Title" name="Book Title">
-              </div>
-              <div class="col">
-              </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputState">Genre</label>
+                    <select id="inputState" class="form-control" id="bookgenre" placeholder="enter genre of book">
+                        <option></option>
+                        <option>fiction</option>
+                        <option>Novel</option>
+                        <option>Narrative</option>
+                        <option>Mystery</option>
+                        <option>Thriller</option>
+                    </select>
                 </div>
-              <div class="col">
-                <input type="text" class="form-control" id="Aname" placeholder="Author Name" name="Author Name">
-              </div>
-              <div class="col">
-              </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputlastname">Author</label>
+                    <input type="text" class="form-control" id="bookauthor" placeholder="enter author ">
                 </div>
-                <div class="col"><select name="cars" class="custom-select">
-                    <option selected>Genre</option>
-                    <option value="Male">Tech</option>
-                    <option value="Female">Story</option>
-                    <option value="Poem">Poem</option>
-                    <option value="Novel">Novel</option>
-                    
-                  </select>
-                  </div>
-              <div class="col">
-              </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputprice">price</label>
+                    <input type="text" class="form-control" id="bookprice" placeholder="enter price">
                 </div>
-              <div class="col">
-                <input type="text" class="form-control" id="Price" placeholder="Price" name="Price">
-              </div>
-              <div class="col">
-              </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col">
-                </div>
-              <div class="col">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
-              </div>
-              <div class="col">
-              </div>
-          </div>
+            </div>
+            <div>
+                <button type="submit" class="button btn btn-light">Add</button>
+            </div>
         </form>
-       
     </div>
-    </div>
-    </body>
+</body>
+
 </html>
